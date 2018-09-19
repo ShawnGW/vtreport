@@ -23,7 +23,7 @@ public class CustomerReport {
 	private static final File TesterDataSource=new File("/server212/RawData/TesterRawdata");
 	private static final File TesterDataSourceBackup=new File("/server212/RawData/TesterRawdatabackup/");
 	public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException, DocumentException, ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, SecurityException, IllegalArgumentException, InvocationTargetException {
-		//auto generate stud test
+		//auto generate stud 
 		CustomerReport customerReport=new CustomerReport();
 		customerReport.GenerateReport(DataSource,DataSourceBackup,"prober");
 		customerReport.GenerateReport(TesterDataSource,TesterDataSourceBackup,"tester");
