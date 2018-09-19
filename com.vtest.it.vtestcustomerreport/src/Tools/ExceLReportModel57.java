@@ -23,7 +23,7 @@ import parseRawdata.parseRawdata;
 public class ExceLReportModel57 extends Report_Model {
 
 	private static final File Model=new File("/Config/JSC.xlsx");
-	private final Integer[] Bin_Array={1,8,9,201,202,203,204,205,301,302,303,304,305,306,308,311,312,313,314,315,316,317,318,319,320,321,322,323,324,325,326,401,402,403,404,405,406,407,408,409,410,411,415,416,417,418,419,420,421,422,423,424,425,426,427,428,429,430,431,432,433,434,435,450,451,452,453,454,455,456,457,458,459,460,461,462,463,464,465,466,467,468,469,470,480,481,482,483,484,485,486,487,488,489,490,501,502,503,504,505,506,507,508,509,510,511,512,513,514,515,517,518,519,520,521,522,523,524,525,526,527,528,529,530,531,532,533,534,535,601,602,603,604,605,606,612,613,614,618,624,625,627,628,629,650,700,701,702,703,704,705,706,708,709,710,711,715,716,717,718,820,821,822,823,826,9999
+	private final Integer[] Bin_Array={1,8,9,201,202,203,204,205,301,302,303,304,305,306,307,308,311,312,313,314,315,316,317,318,319,320,321,322,323,324,325,326,401,402,403,404,405,406,407,408,409,410,411,415,416,417,418,419,420,421,422,423,424,425,426,427,428,429,430,431,432,433,434,435,450,451,452,453,454,455,456,457,458,459,460,461,462,463,464,465,466,467,468,469,470,480,481,482,483,484,485,486,487,488,489,490,501,502,503,504,505,506,507,508,509,510,511,512,513,514,515,517,518,519,520,521,522,523,524,525,526,527,528,529,530,531,532,533,534,535,601,602,603,604,605,606,612,613,614,618,624,625,627,628,629,650,700,701,702,703,704,705,706,708,709,710,711,715,716,717,718,820,821,822,823,826,9999
 };
 	public ExceLReportModel57() throws IOException {
 		super(Model);
@@ -86,11 +86,7 @@ public class ExceLReportModel57 extends Report_Model {
 					String MapRows_R=properties.get("Map Rows");
 					TreeMap<Integer, Integer> Bin_Summary_R=parseRawdata.getBinSummary();
 					String[][] Map_R=parseRawdata.getAllDiesDimensionalArraySoftBin();
-					
-					Map_R=TurnNighteenDegree.Turn(Map_R, Integer.valueOf(MapRows_R), Integer.valueOf(MapCols_R));
-					Map_R=TurnNighteenDegree.Turn(Map_R, Integer.valueOf(MapCols_R), Integer.valueOf(MapRows_R));
-
-					
+										
 					String TestStartTime_R=properties.get("Test Start Time");
 					
 					if (!GrossDie_R.equals(MES_GrossDie)) {

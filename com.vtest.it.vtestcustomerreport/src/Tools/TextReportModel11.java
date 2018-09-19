@@ -110,22 +110,4 @@ public class TextReportModel11 extends FTPRealseModel implements Text_Report {
 			FTP_Release_FAB(CustomerCode, Device, Lot, CP, Result_Text);
 		}
 	}
-//	@Override
-//	public void FTP_Release(String CustomerCode, String Device, String Lot, String CP, File file) {
-//		// TODO Auto-generated method stub
-//		File ReleaseDirectory=new File("/server212/UploadData/TestReportRelease/"+CustomerCode+"/"+Device+"/"+Lot+"/"+CP+"/Fab_Rawdata");
-//		if (!ReleaseDirectory.exists()) {
-//			ReleaseDirectory.mkdirs();
-//		}
-//		File ReleaseFile=new File("/server212/UploadData/TestReportRelease/"+CustomerCode+"/"+Device+"/"+Lot+"/"+CP+"/Fab_Rawdata/"+file.getName());
-//		if (ReleaseFile.exists()) {
-//			ReleaseFile.delete();
-//		}
-//		try {
-//			FilesCopy.copyfile(file, ReleaseDirectory.getPath());
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//	}
 }

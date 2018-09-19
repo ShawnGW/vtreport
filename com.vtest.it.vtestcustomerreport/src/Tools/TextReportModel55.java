@@ -32,17 +32,7 @@ public class TextReportModel55 extends FTPRealseModel implements Text_Report {
 			}
 			Integer RightID_R=Integer.valueOf(properties.get("RightID"));
 			Integer Col_R=(Integer.parseInt(properties.get("TestDieCol"))) ;
-			Integer Row_R=(Integer.parseInt(properties.get("TestDieRow")));
-
-//			MapCell_R=TurnNighteenDegree.Turn(MapCell_R, Row_R, Col_R);
-//			MapCell_R=TurnNighteenDegree.Turn(MapCell_R, Col_R,Row_R);
-//			
-			MapCell_R=TurnNighteenDegree.turnNegativeNighteen(MapCell_R, Row_R, Col_R);
-			
-			Integer temp=Row_R;
-			Row_R=Col_R;
-			Col_R=temp;
-			
+			Integer Row_R=(Integer.parseInt(properties.get("TestDieRow")));		
 			
 			
 			String FinalID=RightID_R.toString();
