@@ -25,6 +25,8 @@ public class ExceLReportModel58 extends Report_Model {
 	private static final File Model=new File("/Config/BID_TMKB28C.xlsx");
 	private final Integer[] Bin_Array={1,301,401,501,601,701,702,703,801,802,803,804,805,901,902,111,121,122,131,141,151
 };
+	private final String[] Bindefine={"Good","Continuity_neg","VBAT_ON_Current","PowerOn_Current","ChipID","LDO_0p9","LDO_1p3","LDO_1p8","MicBiasA","MicBiasB","MicBiasC","MicBiasD","MicBiasE","ADC0","ADC1","VBAT_SENSE","LED_high","LED_low","PowerOff_Current","PowerOff_avddint","Vchgr"
+};
 	public ExceLReportModel58() throws IOException {
 		super(Model);
 		// TODO Auto-generated constructor stub
@@ -130,10 +132,13 @@ public class ExceLReportModel58 extends Report_Model {
 							XSSFCell Bin_cell=Map_Row.createCell(Col_R+4);
 							Bin_cell.setCellStyle(Right_Style);
 							Bin_cell.setCellValue("Bin#");
-							XSSFCell quanty_cell=Map_Row.createCell(Col_R+5);
+							XSSFCell quanty_cell=Map_Row.createCell(Col_R+6);
 							quanty_cell.setCellStyle(Right_Style);
 							quanty_cell.setCellValue("Qty");
-							XSSFCell Yid_cell=Map_Row.createCell(Col_R+6);
+							XSSFCell bin_define_cell=Map_Row.createCell(Col_R+5);
+							bin_define_cell.setCellStyle(Right_Style);
+							bin_define_cell.setCellValue("Description");
+							XSSFCell Yid_cell=Map_Row.createCell(Col_R+7);
 							Yid_cell.setCellStyle(Right_Style);
 							Yid_cell.setCellValue("YID");
 						}
@@ -144,17 +149,28 @@ public class ExceLReportModel58 extends Report_Model {
 							}
 							XSSFCell empty_cell=Map_Row.createCell(Col_R+3);
 							if (Bin_Array[j-3]<33)
+							{
 								empty_cell.setCellStyle(Colors_Array.get(Bin_Array[j-3]-1));
+							}
 							else
-								empty_cell.setCellStyle(Colors_Array.get(31));
+							{
+								Integer colorNumber=Integer.valueOf(Bin_Array[j-3].toString().substring(0, 1));
+								colorNumber=colorNumber==1?colorNumber=2:colorNumber;
+								empty_cell.setCellStyle(Colors_Array.get(colorNumber-1));
+							}
 							empty_cell.setCellValue("");
 							XSSFCell Bin_cell=Map_Row.createCell(Col_R+4);
 							Bin_cell.setCellStyle(Right_Style);
 							Bin_cell.setCellValue("Bin"+Bin_Array[j-3]);
-							XSSFCell quanty_cell=Map_Row.createCell(Col_R+5);
+							
+							XSSFCell bin_define_cell=Map_Row.createCell(Col_R+5);
+							bin_define_cell.setCellStyle(Right_Style);
+							bin_define_cell.setCellValue(Bindefine[j-3]);
+							
+							XSSFCell quanty_cell=Map_Row.createCell(Col_R+6);
 							quanty_cell.setCellStyle(Right_Style);
 							quanty_cell.setCellValue(value);
-							XSSFCell Yid_cell=Map_Row.createCell(Col_R+6);
+							XSSFCell Yid_cell=Map_Row.createCell(Col_R+7);
 							Yid_cell.setCellStyle(DataStyle2);
 							Yid_cell.setCellValue(Double.valueOf(String.format("%4.2f", (double)value*100/GrossDie_R))/100);
 						}
