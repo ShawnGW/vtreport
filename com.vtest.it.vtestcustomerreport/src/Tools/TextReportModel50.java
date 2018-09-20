@@ -59,7 +59,7 @@ public class TextReportModel50 extends FTPRealseModel implements Text_Report {
 				// TODO: handle exception
 				e.printStackTrace();
 			}
-			out.print("Wafer ID:"+FinalID+"\r\n");
+			out.print("Wafer ID:"+Lot+"-"+FinalID+"\r\n");
 			for (int i = 0; i < Row_R; i++) {
 				if ((i+1)<10) {
 					out.print("00"+(i+1)+"        ");

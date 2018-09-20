@@ -19,22 +19,15 @@ public class TextReportModel51 extends FTPRealseModel implements Text_Report {
 		// TODO Auto-generated method stub
 		TextReportModel51 model15=new TextReportModel51();
 		File[] Filelist=DataSorce.listFiles();
+		String priDevice=Device;
+		Device=Device.substring(0, 10);
+		Device=(CP.equals("CP1")?Device=Device+"WTH":(CP.equals("CP2")?Device+"WTH2":Device+"WTH3"));
+		
 		for (int k = 0; k < Filelist.length; k++) {
 			parseRawdata parseRawdata=new parseRawdata(Filelist[k]);
 			LinkedHashMap<String, String> properties=parseRawdata.getProperties();
 			String Wafer_ID_R=properties.get("Wafer ID");
 			String[][] MapCell_R=parseRawdata.getHardBinTestDiesDimensionalArray();
-//			String Flat_R=null;
-//			String notch=properties.get("Notch");
-//			if (notch.equals("0-Degree")) {
-//				Flat_R="UP";
-//			}else if (notch.equals("90-Degree")) {
-//				Flat_R="RIGHT";
-//			}else if (notch.equals("180-Degree")) {
-//				Flat_R="DOWN";
-//			}else {
-//				Flat_R="LEFT";
-//			}
 			String PassDie_R=(properties.get("Pass Die"));	
 			String grossDie=(properties.get("Gross Die"));	
 			String yeild=properties.get("Wafer Yield");
@@ -62,7 +55,7 @@ public class TextReportModel51 extends FTPRealseModel implements Text_Report {
 					FinalName=FinalName.replace(key, NameMap.get(key));
 				}
 			}
-			File Result_Text=new File(reportBath+CustomerCode+"/"+Device+"/"+Lot+"/"+CP+"/"+FinalName);
+			File Result_Text=new File(reportBath+CustomerCode+"/"+priDevice+"/"+Lot+"/"+CP+"/"+FinalName);
 			PrintWriter out=null;
 			try {
 				out=new PrintWriter(new FileWriter(Result_Text));
@@ -75,17 +68,22 @@ public class TextReportModel51 extends FTPRealseModel implements Text_Report {
 			Row_R=Col_R;
 			Col_R=tempNumber;
 			
-			out.print("Customer :"+CustomerCode+"\r\n");
-			out.print("Device :"+Device+"\r\n");
-			out.print("Cust Lot No :"+Lot+"\r\n");
-			out.print("Flat Orientation :DOWN\r\n");
-			out.print("Wafer Num :"+RightID_R+"\r\n");
-			out.print("Good bin code: 1\r\n");
+			out.print("Customer:FM1\r\n");
+			out.print("Device:"+Device+"\r\n");
+			out.print("Cust Lot No:"+Lot+"\r\n");
+			out.print("Flat Orientation:DOWN\r\n");
+			out.print("Wafer Num:"+RightID_R+"\r\n");
+			out.print("Good bin code:1\r\n");
 			out.print("Bad bin code:X\r\n");
 			out.print("TOTAL DIE\r\n");
 			out.print("TESTED    GOOD DIE    YIELD\r\n");
 			out.print(String.format("%-10s", grossDie)+String.format("%-12s", PassDie_R)+yeild+"\r\n");
 			out.print("MAPSTART\r\n");
+			for (int j =0 ; j < Col_R+4; j++)
+			{
+				out.print(".");
+			}
+			out.print("\r\n");
 			for (int j =0 ; j < Col_R+4; j++)
 			{
 				out.print(".");
