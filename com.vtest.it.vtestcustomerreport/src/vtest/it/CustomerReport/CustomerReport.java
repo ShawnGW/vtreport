@@ -13,7 +13,6 @@ import org.dom4j.DocumentException;
 import org.xml.sax.SAXException;
 
 import Tools.ParseCustomerReport;
-//import tools.RawDataFromStdf;
 
 public class CustomerReport {
 
