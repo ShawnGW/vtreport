@@ -82,6 +82,8 @@ public class ExceLReportModel57 extends Report_Model {
 					Integer GrossDie_R=Integer.parseInt(properties.get("Gross Die"));
 					Integer RightID_R=Integer.valueOf(properties.get("RightID"));
 
+					String tester=properties.get("Tester ID");
+					String proberCard=properties.get("Prober Card ID");
 					String MapCols_R=properties.get("Map Cols");
 					String MapRows_R=properties.get("Map Rows");
 					TreeMap<Integer, Integer> Bin_Summary_R=parseRawdata.getBinSummary();
@@ -109,6 +111,8 @@ public class ExceLReportModel57 extends Report_Model {
 						else 
 							Rows.getCell(j+3).setCellValue(Value);
 					}
+					Rows.getCell(170).setCellValue(tester);
+					Rows.getCell(171).setCellValue(proberCard);
 					XSSFSheet ID_Sheet=workbook.getSheet("Map");
 					ID_Sheet.setDefaultColumnWidth(1);	
 					int Max_Row=Integer.valueOf(MapRows_R);
